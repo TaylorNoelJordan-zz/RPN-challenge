@@ -25,7 +25,7 @@ end
 
 class RPNEvaluation
     def initialize(expr)
-        @expr = expr
+        @expr = gets
     end
 
     def evaluate
@@ -37,19 +37,23 @@ class RPNEvaluation
             elsif token == '+'
                 right = stack.op
                 left = stack.pop
-                stack.push(left + right)
+                result = stack.push(left + right)
+                puts result
             elsif token == '*'
                 right = stack.pop
                 left = stack.pop
-                stack.push(left * right)
+                result = stack.push(left * right)
+                puts result
             elsif token == '-'
                 right = stack.pop
                 left = stack.pop
-                stack.push(left - right)
+                result = stack.push(left - right)
+                puts result                 
             elsif token == '/'
                 right = stack.pop
                 left = stack.pop
-                stack.push(left / right)
+                results = stack.push(left / right)
+                puts result
             else
                 raise 'Invalid entry! Please input one of the following: +, *, -, or /'
             end
@@ -68,3 +72,5 @@ class RPNEvaluation
         token =~ /^-?\d\+$/
     end
 end
+
+
